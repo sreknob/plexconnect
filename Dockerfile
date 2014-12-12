@@ -19,8 +19,8 @@ RUN apt-get install -qy python wget
 
 # Install PlexConnect v0.4
 RUN mkdir /opt/plexconnect
-RUN wget https://github.com/iBaa/PlexConnect/archive/v0.4.tar.gz
-RUN tar -C /opt/plexconnect -xvf /tmp/v0.4.tar.gz --strip-components 1
+RUN wget https://github.com/iBaa/PlexConnect/archive/master.zip
+RUN tar -C /opt/plexconnect -xvf /tmp/master.zip --strip-components 1
 RUN chown nobody:users /opt/plexconnect
 
 EXPOSE 80
