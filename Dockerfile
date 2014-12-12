@@ -1,5 +1,6 @@
 FROM phusion/baseimage:0.9.11
-MAINTAINER needo <needo@superhero.org>
+MAINTAINER pducharme <pducharme@me.com>
+# FORK FROM Needo37-Plexconnect on GitHub
 ENV DEBIAN_FRONTEND noninteractive
 
 # Set correct environment variables
@@ -18,11 +19,9 @@ RUN apt-get update -q
 RUN apt-get install -qy python wget unzip
 
 # Install PlexConnect (Master Branch)
-RUN mkdir /opt/plexconnect
 RUN wget https://github.com/iBaa/PlexConnect/archive/master.zip
 RUN unzip master.zip
 RUN mv PlexConnect-master/ /opt/plexconnect
-#RUN tar -C /opt/plexconnect -xvf /tmp/master.zip --strip-components 1
 RUN chown nobody:users /opt/plexconnect
 
 EXPOSE 80
