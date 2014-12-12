@@ -15,7 +15,7 @@ RUN usermod -g 100 nobody
 RUN apt-get update -q
 
 # Install Dependencies
-RUN apt-get install -qy python wget
+RUN apt-get install -qy python wget unzip
 
 # Install PlexConnect (Master Branch)
 RUN mkdir /opt/plexconnect
