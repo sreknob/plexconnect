@@ -16,7 +16,7 @@ RUN usermod -g 100 nobody
 RUN apt-get update -q
 
 # Install Dependencies
-RUN apt-get install -qy python wget unzip
+RUN apt-get install -qy python python-dev wget unzip
 
 #Install PIL/Pillow
 RUN wget http://effbot.org/media/downloads/PIL-1.1.7.tar.gz
