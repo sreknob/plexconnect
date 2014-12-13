@@ -16,13 +16,13 @@ RUN usermod -g 100 nobody
 RUN apt-get update -q
 
 # Install Dependencies
-RUN apt-get install -qy python python-dev wget unzip
+RUN apt-get install -qy python python-dev python-imaging wget unzip
 
 #Install PIL/Pillow
-RUN wget http://effbot.org/media/downloads/PIL-1.1.7.tar.gz
-RUN tar zxvf PIL-1.1.7.tar.gz
-RUN python PIL-1.1.7/setup.py build
-RUN python PIL-1.1.7/setup.py install
+#RUN wget http://effbot.org/media/downloads/PIL-1.1.7.tar.gz
+#RUN tar zxvf PIL-1.1.7.tar.gz
+#RUN python PIL-1.1.7/setup.py build
+#RUN python PIL-1.1.7/setup.py install
 
 # Install PlexConnect (Master Branch)
 RUN wget https://github.com/iBaa/PlexConnect/archive/master.zip
