@@ -7,7 +7,7 @@ if [ -z "$DNS" ]; then
 else
   echo "User specified a DNS IP address, will use it in PlexConnect"
   /usr/bin/python /opt/plexconnect/Settings.py
-  sed -i 's/8.8.8.8/$DNS/g' /opt/plexconnect/Settings.cfg
+  sed -i 's/8.8.8.8/'&"$DNS"&'/g' /opt/plexconnect/Settings.cfg
   exec /usr/bin/python /opt/plexconnect/PlexConnect.py
 fi
 
