@@ -27,12 +27,12 @@ RUN apt-get update -q
 RUN apt-get install -qy python python-dev python-imaging wget unzip
 
 # Install PlexConnect (Master Branch)
-ADD https://github.com/iBaa/PlexConnect/archive/master.zip /opt/plexconnect
-#RUN unzip master.zip
-#RUN mv PlexConnect-master/ /opt/plexconnect
+RUN wget https://github.com/iBaa/PlexConnect/archive/master.zip
+RUN unzip master.zip
+RUN mv PlexConnect-master/ /opt/plexconnect
 RUN chown nobody:users /opt/plexconnect
 
-EXPOSE 80
+EXPOSE 80 443
 
 # Add edge.sh to execute during container startup
 RUN mkdir -p /etc/my_init.d
