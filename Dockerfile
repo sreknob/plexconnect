@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.11
+FROM phusion/baseimage:0.9.15
 MAINTAINER pducharme <pducharme@me.com>
 # FORK FROM Needo37-Plexconnect on GitHub
 
@@ -22,7 +22,8 @@ CMD ["/sbin/my_init"]
 # Disable SSH
 RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
-# Install Dependencies
+# Refresh APT & Install Dependencies
+RUN apt-get update -q
 RUN apt-get install -qy python python-dev python-imaging wget unzip
 
 # Install PlexConnect (Master Branch)
