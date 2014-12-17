@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.15
+FROM phusion/baseimage:0.9.11
 MAINTAINER pducharme <pducharme@me.com>
 # FORK FROM Needo37-Plexconnect on GitHub
 
