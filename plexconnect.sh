@@ -23,9 +23,9 @@ fi
 
 # Does the user specified a Alternate HTTPS Port ?  
 if [ -z "$HTTPS_Port" ]; then
-  echo "No specific HTTP Port specified, using default (80)..."
+  echo "No specific HTTPS Port specified, using default (443)..."
 else
-  echo "A Specific HTTP Port has been specified, using ('$HTTPS_Port')..."
+  echo "A Specific HTTPS Port has been specified, using ('$HTTPS_Port')..."
   sed -i 's/port_ssl=443/port_ssl='$HTTPS_Port'/g' /opt/plexconnect/Settings.cfg
 fi  
   
