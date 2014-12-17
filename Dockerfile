@@ -1,27 +1,34 @@
-FROM phusion/baseimage:0.9.11
+FROM phusion/baseimage:0.9.15
 MAINTAINER pducharme <pducharme@me.com>
 # FORK FROM Needo37-Plexconnect on GitHub
-ENV DEBIAN_FRONTEND noninteractive
 
 # Set correct environment variables
 ENV HOME /root
+ENV DEBIAN_FRONTEND noninteractive
+ENV LC_ALL C.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
-# Fix a Debianism of the nobody's uid being 65534
-RUN usermod -u 99 nobody
-RUN usermod -g 100 nobody
+# Configure user nobody to match unRAID's settings
+ RUN \
+ usermod -u 99 nobody && \
+ usermod -g 100 nobody && \
+ usermod -d /home nobody && \
+ chown -R nobody:users /home
 
-RUN apt-get update -q
+# Disable SSH
+RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 # Install Dependencies
 RUN apt-get install -qy python python-dev python-imaging wget unzip
 
 # Install PlexConnect (Master Branch)
-RUN wget https://github.com/iBaa/PlexConnect/archive/master.zip
-RUN unzip master.zip
-RUN mv PlexConnect-master/ /opt/plexconnect
+ADD https://github.com/iBaa/PlexConnect/archive/master.zip /opt/plexconnect
+#RUN unzip master.zip
+#RUN mv PlexConnect-master/ /opt/plexconnect
 RUN chown nobody:users /opt/plexconnect
 
 EXPOSE 80
