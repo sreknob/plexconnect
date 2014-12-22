@@ -3,7 +3,7 @@
 echo "*** Generate a default config file..."
   /usr/bin/python /opt/plexconnect/Settings.py                            #Create the default config in /opt/plexconnect
   echo "*** Move Settings.cfg to Settings-backup.cfg..."
-  mv /opt/plexconnect/Settings.cfg /opt/plexconnect/Settings-backup.cfg   #Move the Settings to backup Settings-backup
+  cp /opt/plexconnect/Settings.cfg /opt/plexconnect/Settings-backup.cfg   #Move the Settings to backup Settings-backup
   echo "*** Check if previous config exist, if so will use it..."
   if [ -f /config/Settings.cfg ]; then                                    #Check if config file already exist
     echo "*** Yes, it exist...using it!"
@@ -18,6 +18,6 @@ echo "*** Generate a default config file..."
   fi
 
 # Run the PlexConnect  
-echo "*** Launching PlexConnect with the new Settings.cfg..."
+echo "*** Launching PlexConnect..."
 exec /usr/bin/python /opt/plexconnect/PlexConnect.py
 
