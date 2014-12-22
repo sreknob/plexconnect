@@ -1,16 +1,20 @@
 #!/bin/bash
-
-
-
 # Check if existing config file exist, if so will use it.
-  /usr/bin/python /opt/plexconnect/Settings.py
-  mv /opt/plexconnect/Settings.cfg /opt/plexconnect/Settings-backup.cfg
-  ls -s /opt/plexconnect/Settings.cfg /config/Settings.cfg
-  if [ -f /config/Settings.cfg ]; then
-    echo "Using existing config file."
+echo "*** Generate a default config file..."
+  /usr/bin/python /opt/plexconnect/Settings.py                            #Create the default config in /opt/plexconnect
+  echo "*** Move Settings.cfg to Settings-backup.cfg..."
+  mv /opt/plexconnect/Settings.cfg /opt/plexconnect/Settings-backup.cfg   #Move the Settings to backup Settings-backup
+  echo "*** Check if previous config exist, if so will use it..."
+  if [ -f /config/Settings.cfg ]; then                                    #Check if config file already exist
+    echo "*** Yes, it exist...using it!"
+    echo "*** Creating symlink to existing config..."
+    ls -s /opt/plexconnect/Settings.cfg /config/Settings.cfg              #Symlink the Settings.cfg to /config/Settings.cfg
   else
-    mv /opt/plexconnect/Settings-backup.cfg /config/Settings.cfg
-  chown nobody:users /config/Settings.cfg
+    echo "*** No, it did not exist... using the default one!"
+    echo "*** Copying the default one to /config folder..."
+    mv /opt/plexconnect/Settings-backup.cfg /config/Settings.cfg          #If config did not exist, copy default.
+    echo "*** Creating symlink to new config..."
+    ls -s /opt/plexconnect/Settings.cfg /config/Settings.cfg              #SymLink the Settings.cfg to /config/Settings.cfg
   fi
 
 # Run the PlexConnect  
