@@ -26,7 +26,12 @@ else
   echo "*** A Specific HTTPS Port has been specified, using ('$HTTPS_Port')..."
   sed -i 's/443/'$HTTPS_Port'/g' /opt/plexconnect/Settings.cfg
 fi  
-  
+
+#Move Settings out of the docker container
+mv /opt/plexconnect/Settings.cfg /opt/plexconnect/Settings-backup.cfg
+ls -s /opt/plexconnect/Settings.cfg /config/Settings.cfg
+mv /opt/plexconnect/Settings-backup.cfg /config/Settings.cfg
+
 # Run the PlexConnect  
 echo "*** Launching PlexConnect with the new Settings.cfg..."
 exec /usr/bin/python /opt/plexconnect/PlexConnect.py
