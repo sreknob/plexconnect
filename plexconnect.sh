@@ -12,7 +12,7 @@
   if [ -f /config/ATVSettings.cfg ]; then   
     cp /config/ATVSettings.cfg /opt/plexconnect/ATVSettings.cfg
   else
-    
+    echo "*** Copy Done."
   fi
 
 # Run the PlexConnect  
