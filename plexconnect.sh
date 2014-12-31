@@ -8,6 +8,13 @@
     /usr/bin/python /opt/plexconnect/Settings.py 
   fi
 
+ echo "*** Check if previous ATVconfig exist, if so will use it..."  
+  if [ -f /config/ATVSettings.cfg ]; then   
+    cp /config/ATVSettings.cfg /opt/plexconnect/ATVSettings.cfg
+  else
+    
+  fi
+
 # Run the PlexConnect  
 echo "*** Launching PlexConnect..."
 exec /usr/bin/python /opt/plexconnect/PlexConnect.py
