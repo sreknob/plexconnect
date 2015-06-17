@@ -11,6 +11,20 @@ else
   mv /tmp/trailers* /opt/plexconnect/assets/certificates/
 fi
 
+if [ -z "$GHOST" ]; then
+  echo "CyberGhost84 version not requested"
+else
+  echo "CyberGhost84 version requested!"
+  apt-get install -qy git
+  mv /opt/plexconnect/assets/certificates/trailers* /tmp/
+  rm -rf /opt/plexconnect
+  wget https://github.com/CyberGhost84/PlexConnect/archive/master.zip
+  unzip master.zip
+  mv PlexConnect-master/ /opt/plexconnect
+  chown nobody:users /opt/plexconnect
+  mv /tmp/trailers* /opt/plexconnect/assets/certificates/
+fi 
+
 # Generate SSL certificates if they don't exist
 if [ -f /opt/plexconnect/assets/certificates/trailers.pem ] ; then
   echo "SSL certs exist"
