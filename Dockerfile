@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.15
+FROM phusion/baseimage:0.9.16
 MAINTAINER pducharme <pducharme@me.com>
 # FORK FROM Needo37-Plexconnect on GitHub
 
@@ -27,7 +27,7 @@ RUN apt-get update -q
 RUN apt-get install -qy python python-dev python-imaging wget unzip
 
 # Install PlexConnect (Master Branch)
-RUN wget https://github.com/iBaa/PlexConnect/archive/master.zip
+RUN wget https://github.com/CyberGhost84/PlexConnect/archive/master.zip
 RUN unzip master.zip
 RUN mv PlexConnect-master/ /opt/plexconnect
 RUN chown nobody:users /opt/plexconnect
