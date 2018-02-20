@@ -43,3 +43,6 @@ RUN chmod +x /etc/my_init.d/edge.sh
 RUN mkdir /etc/service/plexconnect
 ADD plexconnect.sh /etc/service/plexconnect/run
 RUN chmod +x /etc/service/plexconnect/run
+
+# Clean up APT when done.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
