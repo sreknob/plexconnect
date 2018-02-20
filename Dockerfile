@@ -1,5 +1,5 @@
-FROM phusion/baseimage:0.9.17
-MAINTAINER pducharme <pducharme@me.com>
+FROM alpine:latest
+MAINTAINER pducharme <pducharme@me.com>      
 # FORK FROM Needo37-Plexconnect on GitHub
 
 # Set correct environment variables
