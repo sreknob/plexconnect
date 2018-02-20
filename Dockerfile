@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM phusion/baseimage:0.9.17
 MAINTAINER pducharme <pducharme@me.com>      
 # FORK FROM Needo37-Plexconnect on GitHub
 
