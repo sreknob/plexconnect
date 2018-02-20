@@ -10,6 +10,7 @@ FIRST TIME USERS
 ---
 
 ** Docker now allows for bridged networking **
+
 ** Enable bridge networking and assign and IP address to avoid having to move unRAID ports **
 
 
