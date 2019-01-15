@@ -27,9 +27,9 @@ RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 RUN apt-get update -q
 RUN apt-get install -qy python python-dev python-pil wget unzip
 
-# Install PlexConnect (Master Branch)
-RUN wget https://github.com/iBaa/PlexConnect/archive/master.zip
-RUN unzip master.zip
+# Install PlexConnect (Release 0.6)
+RUN wget https://github.com/iBaa/PlexConnect/archive/V0.6.zip
+RUN unzip V0.6.zip
 RUN mv PlexConnect-master/ /opt/plexconnect
 RUN chown nobody:users /opt/plexconnect
 
