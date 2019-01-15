@@ -29,8 +29,8 @@ RUN apt-get install -qy python python-dev python-pil wget unzip
 
 # Install PlexConnect (Release 0.6)
 RUN wget https://github.com/iBaa/PlexConnect/archive/V0.6.zip
-RUN unzip V0.6.zip
-RUN mv PlexConnect-master/ /opt/plexconnect
+RUN unzip *.zip
+RUN mv PlexConnect-*/ /opt/plexconnect
 RUN chown nobody:users /opt/plexconnect
 
 EXPOSE 80 443
